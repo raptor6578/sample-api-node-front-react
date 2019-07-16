@@ -3,13 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "colors": "^1.3.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-recaptcha": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.4",
+    "nodemon": "^1.19.1",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-google-recaptcha": "^1.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "rxjs": "^6.5.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node server/dist/server.js",
+    "dev": "npm-run-all --parallel start-dev-react watch-dev-server start-dev-server",
+    "start-dev-react": "PORT=8089 BROWSER=none react-scripts start --host=192.168.0.203",
+    "watch-dev-server": "tsc --watch --project server/",
+    "start-dev-server": "nodemon server/dist/server.js",
+    "build": "npm-run-all --parallel build-react build-server",
+    "build-react": "react-scripts build",
+    "build-server": "tsc --project server/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -27,5 +52,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/body-parser": "^1.17.0",
+    "@types/colors": "^1.2.1",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.0",
+    "@types/express-jwt": "0.0.42",
+    "@types/jest": "^24.0.15",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/mongoose": "^5.5.8",
+    "@types/node": "^12.6.2",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-google-recaptcha": "^1.0.0",
+    "@types/react-router-dom": "^4.3.4"
   }
 }
